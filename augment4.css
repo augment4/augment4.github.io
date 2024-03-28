@@ -77,10 +77,28 @@ h3 {
     color: #042940;
 }
 
+.container {
+    // border: 3px solid blue;
+    padding: 20px 40px 20px;
+    max-width: 600px;
+}
+
+.container_image {
+    width: 140px;
+    margin: 30px 30px 3px 0;
+    float: left;
+}
+
+.container_text {
+    display: inline;
+}
+
+/*
 img {
     float: left;
     margin: 12px;
 }
+*/
 
 .text_content {
     color: #111111;
