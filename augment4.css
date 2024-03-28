@@ -1,0 +1,105 @@
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App-logo {
+    max-width: 5%;
+    transform: scale(2);
+    pointer-events: none;
+    margin-right: 20px;
+}
+
+
+header#top_menu {
+    background-color: #005C53;
+}
+
+div.menubar {
+    height: 60px;
+    background-color: #005c53;
+    padding-top: 10px;
+    padding-left: 10px;
+    display: flex;
+    vertical-align: center;
+    flex-direction: row;
+    // margin-left: 10px;
+    // margin-right: 10px;
+    // align-self: stretch;
+}
+
+div.menubar_buttons {
+    // color: #d6d58e;
+    background-color: #005c53;
+    text-align: center;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: center;
+    padding-top: 10px;
+    width: 320px;
+}
+
+.menu_button {
+    // color: #d6d58e;
+    color: #f0f0f0;
+    background-color: #005c53;
+    font-size: 22px;
+    text-align: center;
+    display: inline-block;
+    height: 40px;
+    line-height: 44px;
+    cursor: pointer;
+}
+
+.link {
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+h2 {
+    color: #042940;
+}
+
+h2.product {
+    background-color: #d6d58e;
+    padding-left: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+h2.padded {
+    padding-top: 60px;
+}
+
+h3 {
+    color: #042940;
+}
+
+img {
+    float: left;
+    margin: 12px;
+}
+
+.text_content {
+    color: #111111;
+    font-size: 16px;
+    text-align: justify;
+    text-wrap: normal;
+    padding: 15px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    vertical-align: top;
+}
+
+.hidden {
+    display: none;
+}
+
+.filter-triangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1em;
+  text-align: center;
+}
