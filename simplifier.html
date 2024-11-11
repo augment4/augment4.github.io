@@ -10,13 +10,28 @@
     <title>Augment4 - Improving AI Output</title>
     <link rel="stylesheet" href="augment4.css">
     <script type="application/javascript">
+        let yellow = "#d6d58e";
+        let green = "#005c53";
+
         let display = (idToDisplay) => {
+	    let elt = document.getElementById(idToDisplay);
+	    let eltButton = document.getElementById(idToDisplay + "_button");
+
             let textContents = document.getElementsByClassName("text_content");
             for (let i = 0; i < textContents.length; i++) { // hide all
-                textContents[i].style.display = 'none';
+                textContents[i].classList.add('hidden');
+		let buttonId = textContents[i].id + "_button";
+		document.getElementById(buttonId).style.background = green;
+		document.getElementById(buttonId).style.color = yellow;
             }
-            document.getElementById(idToDisplay).style.display = 'block';
+	    elt.classList.remove('hidden');
+	    eltButton.style.background = yellow;
+	    eltButton.style.color = green;
         }
+
+      let gohome = () => {
+	  window.location.href='index.html';
+      }
     </script>
 </head>
 <body>
@@ -49,66 +64,107 @@
                 <path class="cls-1"
                       d="M4191.25,818.68h-119.99v-201.46h-303.36l-14.34-66.13,314.76-390.13c5.31-6.58,13.31-10.4,21.76-10.4h73.19c15.45,0,27.98,12.53,27.98,27.98v365.74h92.38v72.95h-92.38v201.46ZM4071.26,544.27v-237.93c-15.23,19.09-30.4,38.01-45.5,56.75-15.12,18.75-30.17,37.79-45.17,57.1-17.27,21.59-33.63,42.33-49.08,62.21-15.46,19.89-31.82,40.51-49.09,61.87h188.85Z"></path>
             </svg>
-            <div class="menubar_buttons">
-                    <span class="menu_button"
-                          tabindex="10" onclick="display('product_content')">Products</span>
+            <div class="menubar_buttons_2">
                 <span class="menu_button"
-                      tabindex="11" onclick="display('mission_content')">Mission</span>
+                      tabindex="10" onclick="gohome()">Products</span>
                 <span class="menu_button"
-                      tabindex="12" onclick="display('about_content')">About</span>
-                <span class="menu_button"
-                      tabindex="13" onclick="display('contact_content')">Contact</span>
+                      tabindex="11">Simplifier</span>
             </div>
         </div>
     </header>
 
-    <div id="product_content" class="text_content">
-        <h2 class="product">Augment4 Text Simplifier</h1>
-        <p>
-          Our <b>Text Simplifier</b> utilizes large collections of facts to double-check written text.
-        </p>
-        <p>
-	  The text simplifier can take a scientific abstract or a legal document and distill it into bullet points
-	  or a diagram.  See <a href="simplifier.html">examples here</a>.
-        </p>
+    <div id="simplifier_content">
+      <h2 class="product">Augment4 Text Simplifier</h2>
+      <div>
+        <span id="biomedicine_example_button" class="menu_button" style="background-color: #d6d58e; color: #005c53"
+              tabindex="10" onclick="display('biomedicine_example')">&nbsp;&nbsp;Biomedical example&nbsp;&nbsp;</span>
+	<span>&nbsp;&nbsp;&nbsp;</span>
+        <span id="law_example_button" class="menu_button" style="background-color: #005c53; color: #d6d58e"
+              tabindex="11" onclick="display('law_example')">&nbsp;&nbsp;Law example&nbsp;&nbsp;</span>
+	<span>&nbsp;&nbsp;&nbsp;</span>
+        <span id="general_example_button" class="menu_button" style="background-color: #005c53; color: #d6d58e"
+              tabindex="12" onclick="display('general_example')">&nbsp;&nbsp;General example&nbsp;&nbsp;</span>
+      </div>
+
+      <div id="biomedicine_example" class="text_content">
+	<h3>Biomedical - randomly-selected PubMed article #27777777</h3>
+	You can <a href="https://pubmed.ncbi.nlm.nih.gov/27777777/" target="pubmed">find this article on PubMed</a>.
+	<h4 class="product">PubMed Id 27777777: More Detail, Diagram format</h4>
 	<p>
-          We currently can summarize any of the 35 million articles in PubMed, a nation resource tha is used by 3 million people a day.
-	  Our AI process can also summarize any legal document or general article.
+	  <img src="pubmed-27777777-more-diagram.png" style="height: 750px; width: auto">
 	</p>
+	<h4 class="product">PubMed Id 27777777: Less detail, Diagram format</h4>
+	<p>
+	  <img src="pubmed-27777777-less-diagram.png" style="height: 500px; width: auto">
+	</p>
+	<h4 class="product">PubMed Id 27777777: More detail, Bullet points</h4>
+	<p>
+	  <img src="pubmed-27777777-more-bullets.png" style="height: 500px; width: auto">
+	</p>
+	<h4 class="product">PubMed Id 27777777: Less detail, Bullet points</h4>
+	<p>
+	  <img src="pubmed-27777777-less-bullets.png" style="height: 500px; width: auto">
+	</p>
+	<h4 class="product">PubMed Id 27777777: More detail, Export in DOT format</h4>
+	<p>
+	  <img src="pubmed-27777777-more-dot.png" style="height: 500px; width: auto">
+	</p>
+      </div>
 
-        <p>
-            Our <b>Fact Checker</b> utilizes large collections of facts to double-check written text.
-        </p>
-        <p>
-            Our approach is not based on RAG.  RAG will <b>not</b> be able to completely eliminate LLM hallucinations because the
-            user can not totally control the language generation process and it does not check the final output.
-            Our Fact Checker checks the LLM output based on known facts.
-        </p>
-        It is useful in:
-        <ul>
-            <li><b>Medicine</b> for checking LLM output for medical inaccuracies,</li>
-            <li><b>Law</b> for checking case law,</li>
-            <li><b>Education</b> for checking both student reports and course curriculums,</li>
-            <li><b>Engineering</b> for checking designs.</li>
-            <li><b>Research</b> for checking technical papers and experimental plans,</li>
-        </ul>
-    </div>
 
-    <div id="mission_content" class="text_content hidden">
-        <h1>Augment4 Mission</h1>
-        <p>
-            Augment4's mission is to address technical and social problems caused by AI.
-        </p>
-        <p>
-            Generative AI systems are incredibly sophisticated and useful, but they aren't perfect.
-            They can make mistakes, be used incorrectly, and can complicate the ownership and copyright
-            of creative works.
-            Our mission is to help people gain control over the fast-advancing world of AI systems.
-        </p>
-        <p>
-            See our <span class="link" onclick="display('product_content')">Products</span> page for more information.
-        </p>
+      <div id="law_example" class="text_content hidden">
+	<h3>Law - X (Twitter) Terms of Service, Section 3</h3>
+	From <a href="https://x.com/en/tos" target="x-twitter">this page at X.com</a>.
+	<h4 class="product">X TOS Section 3: More Detail, Diagram format</h4>
+	<p>
+	  <img src="law-twitter-more-diagram.png" style="height: 750px; width: auto">
+	</p>
+	<h4 class="product">X TOS Section 3: Less detail, Diagram format</h4>
+	<p>
+	  <img src="law-twitter-less-diagram.png" style="height: 500px; width: auto">
+	</p>
+	<h4 class="product">X TOS Section 3: More detail, Bullet points</h4>
+	<p>
+	  <img src="law-twitter-more-bullets.png" style="height: 500px; width: auto">
+	</p>
+	<h4 class="product">X TOS Section 3: Less detail, Bullet points</h4>
+	<p>
+	  <img src="law-twitter-less-bullets.png" style="height: 500px; width: auto">
+	</p>
+	<h4 class="product">X TOS Section 3: More detail, Export in DOT format</h4>
+	<p>
+	  <img src="law-twitter-more-dot.png" style="height: 500px; width: auto">
+	</p>
+      </div>
+
+
+      <div id="general_example" class="text_content hidden">
+	<h3>General - Wikipedia paragraph on the 2024 United States Presidential Election</h3>
+	From this <a href="https://en.wikipedia.org/wiki/2024_United_States_presidential_election" target="wikipedia-election">Wikipedia page</a>.
+
+	<h4 class="product">2024 Election: More Detail, Diagram format</h4>
+	<p>
+	  <img src="wikipedia-election-more-diagram.png" style="height: 750px; width: auto">
+	</p>
+	<h4 class="product">2024 Election: Less detail, Diagram format</h4>
+	<p>
+	  <img src="wikipedia-election-less-diagram.png" style="height: 500px; width: auto">
+	</p>
+	<h4 class="product">2024 Election: More detail, Bullet points</h4>
+	<p>
+	  <img src="wikipedia-election-more-bullets.png" style="height: 500px; width: auto">
+	</p>
+	<h4 class="product">2024 Election: Less detail, Bullet points</h4>
+	<p>
+	  <img src="wikipedia-election-less-bullets.png" style="height: 500px; width: auto">
+	</p>
+	<h4 class="product">2024 Election: More detail, Export in DOT format</h4>
+	<p>
+	  <img src="wikipedia-election-more-dot.png" style="height: 500px; width: auto">
+	</p>
+      </div>
     </div>
+</div>
 
 </body>
 </html>

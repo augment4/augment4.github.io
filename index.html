@@ -13,9 +13,9 @@
         let display = (idToDisplay) => {
             let textContents = document.getElementsByClassName("text_content");
             for (let i = 0; i < textContents.length; i++) { // hide all
-                textContents[i].style.display = 'none';
+                textContents[i].classList.add('hidden');
             }
-            document.getElementById(idToDisplay).style.display = 'block';
+            document.getElementById(idToDisplay).classList.remove('hidden');
         }
     </script>
 </head>
@@ -63,11 +63,11 @@
     </header>
 
     <div id="product_content" class="text_content">
-        <h1>Augment4 Planned Products</h1>
+        <h1>Augment4 Products in Development</h1>
         <h2 class="product">Text Simplifier&nbsp;&nbsp;&#x1D4AF;</h2>
-	(<span class="link" onclick="display('simplifier_content')">See examples here</span>)
+	<a class="link" href="simplifier.html">See examples here</a>
         <p>
-          Our <b>Text Simplifier&nbsp;&nbsp;&#x1f5ce;</b> can take a scientific abstract or a legal document and distill it into bullet points
+          Our <b>Text Simplifier</b> can take a scientific abstract or a legal document and summarize it into bullet points
 	  or a diagram.
         </p>
 	<p>
@@ -97,23 +97,23 @@
     <div id="simplifier_content" class="text_content hidden">
       <h2 class="product">Augment4 Text Simplifier</h2>
       <h3>Bioinformatics - randomly-selected PubMed article #27777777</h3>
-      <h4>More Detail: Diagram</h4>
+      <h4 class="product">PubMed Id 27777777: More Detail, Diagram format</h4>
       <p>
-	<img src="pubmed-27777777-more-diagram.png" style="height: 500px; width: auto">
+	<img src="pubmed-27777777-more-diagram.png" style="height: 750px; width: auto">
       </p>
-      <h4>More Detail: Bullet points</h4>
+      <h4 class="product">PubMed Id 27777777: More detail, Bullet points</h4>
       <p>
 	<img src="pubmed-27777777-more-bullets.png" style="height: 500px; width: auto">
       </p>
-      <h4>Less Detail: Diagram</h4>
+      <h4 class="product">PubMed Id 27777777: Less detail, Diagram format</h4>
       <p>
 	<img src="pubmed-27777777-less-diagram.png" style="height: 500px; width: auto">
       </p>
-      <h4>Less Detail: Bullets</h4>
+      <h4 class="product">PubMed Id 27777777: Less detail, Bullet points</h4>
       <p>
 	<img src="pubmed-27777777-less-bullets.png" style="height: 500px; width: auto">
       </p>
-      <h4>More Detail: Export in DOT format</h4>
+      <h4 class="product">PubMed Id 27777777: More detail, Export in DOT format</h4>
       <p>
 	<img src="pubmed-27777777-more-dot.png" style="height: 500px; width: auto">
       </p>

@@ -41,6 +41,18 @@ div.menubar_buttons {
     width: 400px;
 }
 
+div.menubar_buttons_2 {
+    // color: #d6d58e;
+    background-color: #005c53;
+    text-align: center;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: center;
+    padding-top: 10px;
+    width: 200px;
+}
+
 .menu_button {
     // color: #d6d58e;
     color: #f0f0f0;
@@ -75,6 +87,13 @@ h2.padded {
 
 h3 {
     color: #042940;
+}
+
+h4.product {
+    background-color: #d6d58e;
+    padding-left: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .container {
